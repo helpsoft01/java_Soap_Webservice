@@ -1,20 +1,18 @@
-package com.mkyong.ws;
+package sonvh.webservice.ws;
 
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-import javax.jws.WebMethod;
-import javax.jws.WebParam;
-import javax.jws.WebResult;
 import javax.jws.WebService;
 
-import com.mekymong.entity.users;
-import com.mekymong.entity.user;
+import sonvh.webservice.entity.user;
+import sonvh.webservice.entity.users;
+
 
 //Service Implementation Bean
 
-@WebService(endpointInterface = "com.mkyong.ws.HelloWorld")
+@WebService(endpointInterface = "sonvh.webservice.ws")
 public class HelloWorldImpl implements HelloWorld {
 
 	@Override
@@ -31,8 +29,8 @@ public class HelloWorldImpl implements HelloWorld {
 		return u;
 	}
 
-	@Override
-	public List<user> getListUsers() {
+	@Override	
+	public user[] getListUsers() {
 
 		List<user> lstUsers = new ArrayList<>();
 
@@ -42,7 +40,7 @@ public class HelloWorldImpl implements HelloWorld {
 		}
 
 		users lu = new users();
-		lu.setUsers(lstUsers);
+		lu.setUsers(lstUsers.toArray(new user[lstUsers.size()]));
 		return lu.getUsers();
 	}
 }

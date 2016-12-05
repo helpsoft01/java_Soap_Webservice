@@ -1,4 +1,4 @@
-package com.mekymong.entity;
+package sonvh.webservice.entity;
 
 import java.util.List;
 
@@ -12,18 +12,18 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlRootElement(name = "users")
 public class users {
 
-	@XmlElement(name="users")
-	List<user> users;
+	@XmlElement(name = "users")
+	user[] users;
 
 	public users() {
 
 	}
 
-	public List<user> getUsers() {
+	public user[] getUsers() {
 		return users;
 	}
 
-	public void setUsers(List<user> users) {
+	public void setUsers(user[] users) {
 		this.users = users;
 	}
 

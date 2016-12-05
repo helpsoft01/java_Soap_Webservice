@@ -1,4 +1,4 @@
-package com.mkyong.ws;
+package sonvh.webservice.ws;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -11,8 +11,8 @@ import javax.jws.soap.SOAPBinding.ParameterStyle;
 import javax.jws.soap.SOAPBinding.Style;
 import javax.jws.soap.SOAPBinding.Use;
 
-import com.mekymong.entity.users;
-import com.mekymong.entity.user;
+import sonvh.webservice.entity.user;
+
 
 //Service Endpoint Interface
 @WebService
@@ -26,7 +26,8 @@ public interface HelloWorld {
 	user getUser();
 
 	@WebMethod()
-	List<user> getListUsers();
+	@WebResult(name = "users", partName = "users")
+	user[] getListUsers();
 
 //	@WebMethod
 //	@WebResult(name = "EchoStructReturnMessage", targetNamespace = "http://example.org/complex")
