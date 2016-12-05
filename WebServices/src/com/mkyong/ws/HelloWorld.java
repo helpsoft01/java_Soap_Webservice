@@ -11,12 +11,12 @@ import javax.jws.soap.SOAPBinding.ParameterStyle;
 import javax.jws.soap.SOAPBinding.Style;
 import javax.jws.soap.SOAPBinding.Use;
 
-import com.mekymong.entity.complexUser;
+import com.mekymong.entity.users;
 import com.mekymong.entity.user;
 
 //Service Endpoint Interface
 @WebService
-@SOAPBinding(style = Style.DOCUMENT, use = Use.LITERAL, parameterStyle = ParameterStyle.WRAPPED)
+@SOAPBinding(style = Style.RPC, use = Use.LITERAL, parameterStyle = ParameterStyle.WRAPPED)
 public interface HelloWorld {
 
 	@WebMethod()
@@ -26,10 +26,10 @@ public interface HelloWorld {
 	user getUser();
 
 	@WebMethod()
-	user[] getListUsers();
+	List<user> getListUsers();
 
-	@WebMethod
-	@WebResult(name = "EchoStructReturnMessage", targetNamespace = "http://example.org/complex")
-	complexUser getComplexUser();
+//	@WebMethod
+//	@WebResult(name = "EchoStructReturnMessage", targetNamespace = "http://example.org/complex")
+//	users getComplexUser();
 
 }
